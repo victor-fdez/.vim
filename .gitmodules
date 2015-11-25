@@ -3,4 +3,4 @@
 	url = git@github.com:scrooloose/nerdtree.git
 [submodule "bundle/vim-plugins"]
 	path = bundle/vim-plugins
-	url = git@github.com:WolfgangMehner/vim-plugins.git
+	url = git@github.com:victor-fdez/vim-plugins.git
