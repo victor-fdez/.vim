@@ -4,3 +4,6 @@
 [submodule "bundle/vim-plugins"]
 	path = bundle/vim-plugins
 	url = git@github.com:victor-fdez/vim-plugins.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
