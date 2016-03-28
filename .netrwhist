@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/fvictor/.vim/bundle/vim-plugins/c-support/templates'
+let g:netrw_dirhist_2='/Users/fvictor/Desktop/h3laboratories/mail/h3laboratories.com/hello/cur'
+let g:netrw_dirhist_3='/private/etc/apache2/extra'

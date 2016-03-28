@@ -20,4 +20,6 @@ colorscheme koehler
 "-------------------------------------------------------------------------------
 let NERDTreeDirArrows=0
 map <C-n> :NERDTreeToggle<CR>
-
+set tabstop=2 
+set expandtab
+set shiftwidth=2
