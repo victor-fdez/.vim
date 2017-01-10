@@ -23,19 +23,21 @@ map <C-n> :NERDTreeToggle<CR>
 set tabstop=2 
 set expandtab
 set shiftwidth=2
-" tsuquyomi
-let g:tsuquyomi_completion_detail = 1
-autocmd FileType typescript setlocal completeopt+=menu,preview
+" vim typescript
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] 
+let g:tsuquyomi_completion_detail = 1
+" tsuquyomi
+autocmd FileType typescript setlocal completeopt+=menu,preview
 " ts pretty html templates
 autocmd FileType javascript JsPreTmpl html
-autocmd FileType typescript JsPreTmpl markdown
-"autocmd FileType typescript syn clear foldBraces " For leafgarland/typescript-vim users only. Please see #1 for details.
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
