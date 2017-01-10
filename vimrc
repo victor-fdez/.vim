@@ -35,4 +35,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+" ts pretty html templates
+autocmd FileType javascript JsPreTmpl html
+autocmd FileType typescript JsPreTmpl markdown
+"autocmd FileType typescript syn clear foldBraces " For leafgarland/typescript-vim users only. Please see #1 for details.
