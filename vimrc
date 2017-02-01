@@ -30,14 +30,26 @@ autocmd QuickFixCmdPost    l* nested lwindow
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] 
-let g:tsuquyomi_completion_detail = 1
+let g:syntastic_html_tidy_ignore_errors = [
+    \  'plain text isn''t allowed in <head> elements',
+    \  '<base> escaping malformed URI reference',
+    \  'discarding unexpected <body>',
+    \  '<script> escaping malformed URI reference',
+    \  '</head> isn''t allowed in <body> elements',
+    \  '<template> is not recognized!'
+    \ ]
+let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 " tsuquyomi
 autocmd FileType typescript setlocal completeopt+=menu,preview
 " ts pretty html templates
 autocmd FileType javascript JsPreTmpl html
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
+
+" colorscheme
+colorscheme BlackSea
