@@ -26,7 +26,9 @@ set shiftwidth=2
 " vim typescript
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+"-------------------------------------------------------------------------------
 " Syntastic
+"-------------------------------------------------------------------------------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -44,12 +46,27 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ ]
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
-" tsuquyomi
+"-------------------------------------------------------------------------------
+" Tsuquyomi
+"-------------------------------------------------------------------------------
 autocmd FileType typescript setlocal completeopt+=menu,preview
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
 " ts pretty html templates
 autocmd FileType javascript JsPreTmpl html
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
-
 " colorscheme
 colorscheme BlackSea
+"-------------------------------------------------------------------------------
+" CtrlP
+"-------------------------------------------------------------------------------
+nmap <Leader>r :CtrlPMRU<CR>
+let g:ctrlp_max_files = 10000
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
