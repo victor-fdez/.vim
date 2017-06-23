@@ -12,9 +12,11 @@
 "       License:  Copyright (c) 2015, YOUR NAME
 "===============================================================================
 execute pathogen#infect()
+Helptags
 syntax on
 filetype plugin indent on
-colorscheme koehler
+au BufRead,BufNewFile Dockerfile* set filetype=Dockerfile
+au BufRead,BufNewFile Dockerfile set filetype=Dockerfile
 "-------------------------------------------------------------------------------
 " NerdTree Plugin Options
 "-------------------------------------------------------------------------------
@@ -57,8 +59,19 @@ autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbol
 autocmd FileType javascript JsPreTmpl html
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
-" colorscheme
-colorscheme BlackSea
+"-------------------------------------------------------------------------------
+" Colorscheme
+"-------------------------------------------------------------------------------
+syntax enable
+" set background=dark
+set number
+let g:solarized_termcolors=256
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+colorscheme solarized
 "-------------------------------------------------------------------------------
 " CtrlP
 "-------------------------------------------------------------------------------
@@ -70,3 +83,30 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+"-------------------------------------------------------------------------------
+" Terraform
+"-------------------------------------------------------------------------------
+let g:terraform_align=1
+
+"-------------------------------------------------------------------------------
+" Neocomplete
+"-------------------------------------------------------------------------------
+let g:neocomplete#enable_at_startup = 1
+"-------------------------------------------------------------------------------
+" Go
+"-------------------------------------------------------------------------------
+let g:go_fmt_command = "goimports"
+let g:go_build_tags = ''
+"let g:go_gorename_prefill = 1
+au FileType go nmap <leader>gor <Plug>(go-run)
+au FileType go nmap <leader>gob <Plug>(go-build)
+au FileType go nmap <leader>got <Plug>(go-test)
+au FileType go nmap <leader>goc <Plug>(go-coverage)
+"-------------------------------------------------------------------------------
+" TagBar
+"-------------------------------------------------------------------------------
+nmap <F8> :TagbarToggle<CR>
+"-------------------------------------------------------------------------------
+" Airline
+"-------------------------------------------------------------------------------
+let g:airline#extensions#tabline#enabled = 1
